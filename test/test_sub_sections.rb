@@ -55,3 +55,4 @@ report = ODFReport::Report.new("test_sub_sections.odt") do |r|
 end
 
 report.generate("test_sub_sections_result.odt")
+report.cleanup!

@@ -73,6 +73,20 @@ class Report
 
   end
 
+  # this will remove the temp directory created on initialize.
+  # cleanup will leave the instance in an unusable state so we
+  # remove the generate method.
+  def cleanup!
+    begin
+      FileUtils.rm_r @tmp_dir, :secure => true
+      self.instance_eval "def generate;nil;end;"
+      true
+    rescue
+      false
+    end
+  end
+
+
 private
 
   def parse_document(txt)

@@ -37,3 +37,4 @@ report = ODFReport::Report.new("test_sections.odt") do |r|
 end
 
 report.generate("test_sections_result.odt")
+report.cleanup!
